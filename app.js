@@ -105,11 +105,14 @@ function calcularSuperEconomico() {
   resultado.innerHTML = `
     <h3>Resumen de Compra</h3>
     <p><strong>Total más económico:</strong> ${superEcon} - $${totalEcon.toFixed(2)}</p>
-    <p><strong>Ahorro:</strong> $${ahorro.toFixed(2)} (comparado con ${superCaro})</p>
+    <p><strong>Ahorro al elegir la mejor opción:</strong> $${ahorro.toFixed(2)} (comparado con ${superCaro})</p>
     <hr>
     <h4>Totales por supermercado:</h4>
     <ul>
       ${supermercadosOrdenados.map(([nombre, total]) => `<li>${nombre}: $${total.toFixed(2)}</li>`).join("")}
     </ul>
+    <hr>
+    <h4 style="color: green;">✅ Total ahorrado: $${ahorro.toFixed(2)}</h4>
   `;
 }
+
