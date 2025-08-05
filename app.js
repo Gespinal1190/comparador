@@ -53,7 +53,7 @@ function buscarProducto() {
 
 function agregarALista(index) {
   const producto = productosMock[index];
-  listaCompra.push(producto); // Se pueden añadir múltiples veces
+  listaCompra.push(producto); // ahora se pueden añadir múltiples veces
   actualizarLista();
 }
 
@@ -61,11 +61,11 @@ function actualizarLista() {
   const lista = document.getElementById("listaProductos");
   lista.innerHTML = "";
 
-  listaCompra.forEach((producto, i) => {
+  listaCompra.forEach((p, i) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      ${producto.nombre} <br>
-      ${producto.supermercados.map(s => `${s.nombre}: $${s.precio.toFixed(2)}`).join(" / ")}
+      ${p.nombre} <br>
+      ${p.supermercados.map(s => `${s.nombre}: $${s.precio.toFixed(2)}`).join(" / ")}
       <button onclick="eliminarProducto(${i})">❌</button>
     `;
     lista.appendChild(li);
@@ -84,29 +84,31 @@ function calcularSuperEconomico() {
 
   listaCompra.forEach(p => {
     p.supermercados.forEach(s => {
-      totales[s.nombre] = (totales[s.nombre] || 0) + s.precio;
+      if (!totales[s.nombre]) totales[s.nombre] = 0;
+      totales[s.nombre] += s.precio;
     });
   });
 
-  const ordenado = Object.entries(totales).sort((a, b) => a[1] - b[1]);
+  const supermercadosOrdenados = Object.entries(totales).sort((a, b) => a[1] - b[1]);
+
   const resultado = document.getElementById("resultadoEconomico");
-
-  if (ordenado.length > 0) {
-    const [superBarato, totalBarato] = ordenado[0];
-    const [superCaro, totalCaro] = ordenado[ordenado.length - 1];
-    const ahorro = totalCaro - totalBarato;
-
-    resultado.innerHTML = `
-      <h3>Supermercado más económico:</h3>
-      <p><strong>${superBarato}</strong> - Total: $${totalBarato.toFixed(2)}</p>
-      <p><strong>Ahorro:</strong> $${ahorro.toFixed(2)} comparado con ${superCaro}</p>
-      <hr>
-      <h4>Totales por supermercado:</h4>
-      <ul>
-        ${ordenado.map(([nombre, total]) => `<li>${nombre}: $${total.toFixed(2)}</li>`).join("")}
-      </ul>
-    `;
-  } else {
+  if (supermercadosOrdenados.length === 0) {
     resultado.innerHTML = "";
+    return;
   }
+
+  const [superEcon, totalEcon] = supermercadosOrdenados[0];
+  const [superCaro, totalCaro] = supermercadosOrdenados[supermercadosOrdenados.length - 1];
+  const ahorro = totalCaro - totalEcon;
+
+  resultado.innerHTML = `
+    <h3>Resumen de Compra</h3>
+    <p><strong>Total más económico:</strong> ${superEcon} - $${totalEcon.toFixed(2)}</p>
+    <p><strong>Ahorro:</strong> $${ahorro.toFixed(2)} (comparado con ${superCaro})</p>
+    <hr>
+    <h4>Totales por supermercado:</h4>
+    <ul>
+      ${supermercadosOrdenados.map(([nombre, total]) => `<li>${nombre}: $${total.toFixed(2)}</li>`).join("")}
+    </ul>
+  `;
 }
