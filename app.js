@@ -53,29 +53,35 @@ function buscarProducto() {
 
 function agregarALista(index) {
   const producto = productosMock[index];
-  const yaExiste = listaCompra.find(p => p.nombre === producto.nombre);
-  if (!yaExiste) {
-    listaCompra.push(producto);
-    actualizarLista();
-  }
+  listaCompra.push(producto); // Se pueden añadir múltiples veces
+  actualizarLista();
 }
 
 function actualizarLista() {
   const lista = document.getElementById("listaProductos");
   lista.innerHTML = "";
-  listaCompra.forEach(p => {
+
+  listaCompra.forEach((producto, i) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      ${p.nombre} <br>
-      ${p.supermercados.map(s => `${s.nombre}: $${s.precio.toFixed(2)}`).join(" / ")}
+      ${producto.nombre} <br>
+      ${producto.supermercados.map(s => `${s.nombre}: $${s.precio.toFixed(2)}`).join(" / ")}
+      <button onclick="eliminarProducto(${i})">❌</button>
     `;
     lista.appendChild(li);
   });
+
   calcularSuperEconomico();
+}
+
+function eliminarProducto(index) {
+  listaCompra.splice(index, 1);
+  actualizarLista();
 }
 
 function calcularSuperEconomico() {
   const totales = {};
+
   listaCompra.forEach(p => {
     p.supermercados.forEach(s => {
       totales[s.nombre] = (totales[s.nombre] || 0) + s.precio;
@@ -86,8 +92,20 @@ function calcularSuperEconomico() {
   const resultado = document.getElementById("resultadoEconomico");
 
   if (ordenado.length > 0) {
-    resultado.innerHTML = `<h3>Supermercado más económico:</h3>
-      <p><strong>${ordenado[0][0]}</strong> - Total: $${ordenado[0][1].toFixed(2)}</p>`;
+    const [superBarato, totalBarato] = ordenado[0];
+    const [superCaro, totalCaro] = ordenado[ordenado.length - 1];
+    const ahorro = totalCaro - totalBarato;
+
+    resultado.innerHTML = `
+      <h3>Supermercado más económico:</h3>
+      <p><strong>${superBarato}</strong> - Total: $${totalBarato.toFixed(2)}</p>
+      <p><strong>Ahorro:</strong> $${ahorro.toFixed(2)} comparado con ${superCaro}</p>
+      <hr>
+      <h4>Totales por supermercado:</h4>
+      <ul>
+        ${ordenado.map(([nombre, total]) => `<li>${nombre}: $${total.toFixed(2)}</li>`).join("")}
+      </ul>
+    `;
   } else {
     resultado.innerHTML = "";
   }
