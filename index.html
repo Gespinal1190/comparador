@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Precios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>🛒 Comparador de Precios de Supermercado</h1>
+    </header>
+
+    <main class="container">
+        <section class="busqueda">
+            <h2>Buscar Producto</h2>
+            <input type="text" id="busqueda" placeholder="Ej. Leche, Pan, Arroz...">
+            <button onclick="buscarProducto()">Buscar</button>
+        </section>
+
+        <section class="wireframe">
+            <h3>Wireframe de Producto</h3>
+            <div class="imagen-placeholder">Imagen del producto</div>
+        </section>
+
+        <section id="resultados">
+            <h2>Resultados Encontrados</h2>
+            <div id="listaResultados" class="grid-resultados"></div>
+        </section>
+        
+
+        <section class="wireframe">
+            <h3>Wireframe de Lista de Compra</h3>
+            <div class="imagen-placeholder">Imagen de la lista de compra</div>
+        </section>
+
+        <section id="listaCompra">
+            <h2>Lista de la Compra</h2>
+            <ul id="listaProductos"></ul>
+            <div id="resultadoEconomico"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Comparador Supermercado App</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
