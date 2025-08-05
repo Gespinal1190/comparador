@@ -38,7 +38,8 @@ function buscarProducto() {
     return;
   }
 
-  resultados.forEach((producto, index) => {
+  resultados.forEach(producto => {
+    const index = productosMock.indexOf(producto);  // índice real del producto
     const div = document.createElement("div");
     div.className = "producto";
     div.innerHTML = `
@@ -53,7 +54,7 @@ function buscarProducto() {
 
 function agregarALista(index) {
   const producto = productosMock[index];
-  listaCompra.push(producto); // ahora se pueden añadir múltiples veces
+  listaCompra.push(producto); // permite añadir múltiples veces cualquier producto
   actualizarLista();
 }
 
