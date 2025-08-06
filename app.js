@@ -9,7 +9,7 @@ const productosMock = [
   },
   {
     nombre: "Pan Baguette",
-    imagen: "https://via.placeholder.com/300x150?text=Pan",
+    imagen: "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffinditapp.es%2Fproduct%2F21650%2Fbaguette-sin-gluten&psig=AOvVaw2gJlQqELcosvwNuBvytZui&ust=1754600879117000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCNDy9eSL944DFQAAAAAdAAAAABAE",
     supermercados: [
       { nombre: "Super A", precio: 0.90 },
       { nombre: "Super B", precio: 1.00 }
