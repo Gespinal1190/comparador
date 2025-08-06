@@ -1,7 +1,7 @@
 const productosMock = [
   {
     nombre: "Leche Entera",
-    imagen: "https://via.placeholder.com/300x150?text=Leche",
+    imagen: "https://prod-mercadona.imgix.net/images/18228cb88448a54fa84c48935af95351.jpg?fit=crop&h=300&w=300e",
     supermercados: [
       { nombre: "Super A", precio: 1.20 },
       { nombre: "Super B", precio: 1.15 }
@@ -17,7 +17,7 @@ const productosMock = [
   },
   {
     nombre: "Huevos 12u",
-    imagen: "https://via.placeholder.com/300x150?text=Huevos",
+    imagen: "https://prod-mercadona.imgix.net/images/caff2c1966c9890184b1a49c72679ad1.jpg?fit=crop&h=300&w=300",
     supermercados: [
       { nombre: "Super A", precio: 2.60 },
       { nombre: "Super B", precio: 2.45 }
