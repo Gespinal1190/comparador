@@ -1,29 +1,186 @@
 const productosMock = [
   {
     nombre: "Leche Entera",
-    imagen: "https://prod-mercadona.imgix.net/images/18228cb88448a54fa84c48935af95351.jpg?fit=crop&h=300&w=300e",
+    imagen: "https://via.placeholder.com/300x150?text=Leche+Entera",
     supermercados: [
-      { nombre: "Super A", precio: 1.20 },
-      { nombre: "Super B", precio: 1.15 }
+      { nombre: "Mercadona", precio: 1.20 },
+      { nombre: "Carrefour", precio: 1.15 },
+      { nombre: "Alcampo", precio: 1.18 }
     ]
   },
   {
     nombre: "Pan Baguette",
-    imagen: "https://finditapp.es/_next/image?url=https%3A%2F%2Fdx7csy7aghu7b.cloudfront.net%2Fprods%2F21650.webp&w=750&q=75",
+    imagen: "https://via.placeholder.com/300x150?text=Pan+Baguette",
     supermercados: [
-      { nombre: "Super A", precio: 0.90 },
-      { nombre: "Super B", precio: 1.00 }
+      { nombre: "Mercadona", precio: 0.90 },
+      { nombre: "Carrefour", precio: 1.00 },
+      { nombre: "Alcampo", precio: 0.95 }
     ]
   },
   {
     nombre: "Huevos 12u",
-    imagen: "https://prod-mercadona.imgix.net/images/caff2c1966c9890184b1a49c72679ad1.jpg?fit=crop&h=300&w=300",
+    imagen: "https://via.placeholder.com/300x150?text=Huevos+12u",
     supermercados: [
-      { nombre: "Super A", precio: 2.60 },
-      { nombre: "Super B", precio: 2.45 }
+      { nombre: "Mercadona", precio: 2.60 },
+      { nombre: "Carrefour", precio: 2.45 },
+      { nombre: "Alcampo", precio: 2.55 }
+    ]
+  },
+  {
+    nombre: "Arroz Largo 1kg",
+    imagen: "https://via.placeholder.com/300x150?text=Arroz+Largo",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.10 },
+      { nombre: "Carrefour", precio: 1.25 },
+      { nombre: "Alcampo", precio: 1.20 }
+    ]
+  },
+  {
+    nombre: "Aceite de Girasol 1L",
+    imagen: "https://via.placeholder.com/300x150?text=Aceite+Girasol",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.95 },
+      { nombre: "Carrefour", precio: 2.00 },
+      { nombre: "Alcampo", precio: 1.85 }
+    ]
+  },
+  {
+    nombre: "Tomate Frito 400g",
+    imagen: "https://via.placeholder.com/300x150?text=Tomate+Frito",
+    supermercados: [
+      { nombre: "Mercadona", precio: 0.75 },
+      { nombre: "Carrefour", precio: 0.80 },
+      { nombre: "Alcampo", precio: 0.78 }
+    ]
+  },
+  {
+    nombre: "Lechuga Iceberg",
+    imagen: "https://via.placeholder.com/300x150?text=Lechuga",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.00 },
+      { nombre: "Carrefour", precio: 1.10 },
+      { nombre: "Alcampo", precio: 1.05 }
+    ]
+  },
+  {
+    nombre: "Zumo de Naranja 1L",
+    imagen: "https://via.placeholder.com/300x150?text=Zumo+Naranja",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.40 },
+      { nombre: "Carrefour", precio: 1.35 },
+      { nombre: "Alcampo", precio: 1.30 }
+    ]
+  },
+  {
+    nombre: "Manzanas Golden (1kg)",
+    imagen: "https://via.placeholder.com/300x150?text=Manzanas",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.90 },
+      { nombre: "Carrefour", precio: 2.00 },
+      { nombre: "Alcampo", precio: 1.85 }
+    ]
+  },
+  {
+    nombre: "Plátanos (1kg)",
+    imagen: "https://via.placeholder.com/300x150?text=Platanos",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.80 },
+      { nombre: "Carrefour", precio: 1.75 },
+      { nombre: "Alcampo", precio: 1.85 }
+    ]
+  },
+  {
+    nombre: "Yogur Natural Pack 4",
+    imagen: "https://via.placeholder.com/300x150?text=Yogur+Natural",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.10 },
+      { nombre: "Carrefour", precio: 1.05 },
+      { nombre: "Alcampo", precio: 1.08 }
+    ]
+  },
+  {
+    nombre: "Café Molido 250g",
+    imagen: "https://via.placeholder.com/300x150?text=Cafe+Molido",
+    supermercados: [
+      { nombre: "Mercadona", precio: 2.20 },
+      { nombre: "Carrefour", precio: 2.10 },
+      { nombre: "Alcampo", precio: 2.15 }
+    ]
+  },
+  {
+    nombre: "Galletas María 800g",
+    imagen: "https://via.placeholder.com/300x150?text=Galletas+Maria",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.25 },
+      { nombre: "Carrefour", precio: 1.30 },
+      { nombre: "Alcampo", precio: 1.28 }
+    ]
+  },
+  {
+    nombre: "Pollo entero (kg)",
+    imagen: "https://via.placeholder.com/300x150?text=Pollo",
+    supermercados: [
+      { nombre: "Mercadona", precio: 3.90 },
+      { nombre: "Carrefour", precio: 4.00 },
+      { nombre: "Alcampo", precio: 3.95 }
+    ]
+  },
+  {
+    nombre: "Pechuga de pollo (kg)",
+    imagen: "https://via.placeholder.com/300x150?text=Pechuga+Pollo",
+    supermercados: [
+      { nombre: "Mercadona", precio: 6.50 },
+      { nombre: "Carrefour", precio: 6.70 },
+      { nombre: "Alcampo", precio: 6.40 }
+    ]
+  },
+  {
+    nombre: "Filetes de ternera (kg)",
+    imagen: "https://via.placeholder.com/300x150?text=Ternera",
+    supermercados: [
+      { nombre: "Mercadona", precio: 10.50 },
+      { nombre: "Carrefour", precio: 10.30 },
+      { nombre: "Alcampo", precio: 10.40 }
+    ]
+  },
+  {
+    nombre: "Pasta Macarrones 500g",
+    imagen: "https://via.placeholder.com/300x150?text=Macarrones",
+    supermercados: [
+      { nombre: "Mercadona", precio: 0.90 },
+      { nombre: "Carrefour", precio: 0.85 },
+      { nombre: "Alcampo", precio: 0.88 }
+    ]
+  },
+  {
+    nombre: "Chocolate con leche 100g",
+    imagen: "https://via.placeholder.com/300x150?text=Chocolate",
+    supermercados: [
+      { nombre: "Mercadona", precio: 0.90 },
+      { nombre: "Carrefour", precio: 0.95 },
+      { nombre: "Alcampo", precio: 0.92 }
+    ]
+  },
+  {
+    nombre: "Sal fina 1kg",
+    imagen: "https://via.placeholder.com/300x150?text=Sal",
+    supermercados: [
+      { nombre: "Mercadona", precio: 0.40 },
+      { nombre: "Carrefour", precio: 0.38 },
+      { nombre: "Alcampo", precio: 0.39 }
+    ]
+  },
+  {
+    nombre: "Azúcar blanco 1kg",
+    imagen: "https://via.placeholder.com/300x150?text=Azucar",
+    supermercados: [
+      { nombre: "Mercadona", precio: 1.05 },
+      { nombre: "Carrefour", precio: 1.00 },
+      { nombre: "Alcampo", precio: 1.03 }
     ]
   }
 ];
+
 
 let listaCompra = [];
 
