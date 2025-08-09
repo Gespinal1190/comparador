@@ -66,9 +66,10 @@ const productosMock = [
     nombre: "Zumo de Naranja 1L",
     imagen: "https://via.placeholder.com/300x150?text=Zumo+Naranja",
     supermercados: [
-      { nombre: "Mercadona", precio: 1.40 },
-      { nombre: "Carrefour", precio: 1.35 },
-      { nombre: "Alcampo", precio: 1.30 }
+      { nombre: "Mercadona", precio: 1.75 },
+      { nombre: "Carrefour", precio: 1.79 },
+      { nombre: "Alcampo", precio: 1.44 },
+      { nombre: "caprabo", precio: 1.79 }
     ]
   },
   {
