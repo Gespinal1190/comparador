@@ -69,7 +69,7 @@ const productosMock = [
       { nombre: "Mercadona", precio: 1.75 },
       { nombre: "Carrefour", precio: 1.79 },
       { nombre: "Alcampo", precio: 1.44 },
-      { nombre: "caprabo", precio: 1.79 }
+      { nombre: "Caprabo", precio: 1.79 }
     ]
   },
   {
