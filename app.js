@@ -64,10 +64,10 @@ const productosMock = [
   },
   {
     nombre: "Zumo de Naranja 1L",
-    imagen: "https://via.placeholder.com/300x150?text=Zumo+Naranja",
+    imagen: "https://www.confisur.es/1695-large_default/zumo-don-simon-naranja-1l.jpg",
     supermercados: [
       { nombre: "Mercadona", precio: 1.75 },
-      { nombre: "Carrefour", precio: 1.79 },
+      { nombre: "Carrefour", precio: 1.92 },
       { nombre: "Alcampo", precio: 1.44 },
       { nombre: "Caprabo", precio: 1.79 }
     ]
