@@ -21,9 +21,9 @@ const productosMock = [
     nombre: "Huevos 12u",
     imagen: "https://via.placeholder.com/300x150?text=Huevos+12u",
     supermercados: [
-      { nombre: "Mercadona", precio: 2.60 },
-      { nombre: "Carrefour", precio: 2.45 },
-      { nombre: "Alcampo", precio: 2.55 }
+      { nombre: "Mercadona", precio: 2.80 },
+      { nombre: "Carrefour", precio: 2.80 },
+      { nombre: "Alcampo", precio: 2.47 }
     ]
   },
   {
@@ -68,8 +68,7 @@ const productosMock = [
     supermercados: [
       { nombre: "Mercadona", precio: 1.75 },
       { nombre: "Carrefour", precio: 1.92 },
-      { nombre: "Alcampo", precio: 1.44 },
-      { nombre: "Caprabo", precio: 1.79 }
+      { nombre: "Alcampo", precio: 1.44 }
     ]
   },
   {
