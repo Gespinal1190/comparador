@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparador de Precios</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comparador de Precios - MVP</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="header">
-        <h1>🛒 Comparador de Precios de Supermercado</h1>
-    </header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">SuperComparador</h1>
+      <nav aria-label="principal">
+        <button id="btn-open-list" title="Ver lista">🧾 Lista (<span id="count-list">0</span>)</button>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container">
-        <section class="busqueda">
-            <h2>Buscar Producto</h2>
-            <input type="text" id="busqueda" placeholder="Ej. Leche, Pan, Arroz...">
-            <button onclick="buscarProducto()">Buscar</button>
-        </section>
+  <main class="container main">
+    <section class="search-area" aria-labelledby="buscar-title">
+      <h2 id="buscar-title">Buscar producto</h2>
+      <div class="search-row">
+        <input id="busqueda" type="search" placeholder="Ej. Leche, Pan, Huevos..." />
+        <select id="filter-super">
+          <option value="all">Filtrar por supermercado (todos)</option>
+          <option value="Mercadona">Mercadona</option>
+          <option value="Carrefour">Carrefour</option>
+          <option value="Alcampo">Alcampo</option>
+        </select>
+        <button id="btn-buscar">Buscar</button>
+      </div>
+    </section>
 
-        <section class="wireframe">
-            <h3>Wireframe de Producto</h3>
-            <div class="imagen-placeholder">Imagenes del producto</div>
-        </section>
+    <section class="grid-and-wire">
+      <aside class="wireframe">
+        <h3>Wireframe - Imagen del Producto</h3>
+        <div class="imagen-placeholder">Aquí irá la imagen del producto</div>
+        <p class="hint">Usa imágenes reales o placeholders para mostrar el producto.</p>
+      </aside>
 
-        <section id="resultados">
-            <h2>Resultados Encontrados</h2>
-            <div id="listaResultados" class="grid-resultados"></div>
-        </section>
-        
+      <section id="resultados-section">
+        <h3>Resultados encontrados</h3>
+        <div id="listaResultados" class="grid-resultados" aria-live="polite"></div>
+      </section>
+    </section>
 
-        <section class="wireframe">
-            <h3>Wireframe de Lista de Compra</h3>
-            <div class="imagen-placeholder">Imagen de la lista de compra</div>
-        </section>
+    <section id="listaCompra" class="cart-panel" aria-labelledby="lista-title">
+      <h3 id="lista-title">Mi lista de la compra</h3>
+      <ul id="listaProductos" class="cart-list"></ul>
+      <div id="resultadoEconomico" class="summary"></div>
+      <div class="cart-actions">
+        <button id="btn-clear">Vaciar lista</button>
+        <button id="btn-download">Descargar lista (.csv)</button>
+      </div>
+    </section>
+  </main>
 
-        <section id="listaCompra">
-            <h2>Lista de la Compra</h2>
-            <ul id="listaProductos"></ul>
-            <div id="resultadoEconomico"></div>
-        </section>
-    </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 SuperComparador • MVP</p>
+    </div>
+  </footer>
 
-    <footer class="footer">
-        <p>© 2025 Comparador Supermercado App</p>
-    </footer>
-
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
