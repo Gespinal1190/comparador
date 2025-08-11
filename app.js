@@ -1,5 +1,147 @@
 /* ======= productosMock: 30 productos (placeholders de imagen) ======= */
 const productosMock = [
+<<<<<<< HEAD
+  { nombre: "Leche Entera 1L", imagen: "https://images.unsplash.com/photo-1582719478147-8ee236b18a70?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 0.97 },
+    { nombre: "Carrefour", precio: 0.99 },
+    { nombre: "Alcampo", precio: 0.98 },
+    { nombre: "Lidel", precio: 0.95 },
+    { nombre: "DIA", precio: 0.96 }
+  ]},
+  { nombre: "Pan Baguette 250g", imagen: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 0.90 },
+    { nombre: "Carrefour", precio: 1.00 },
+    { nombre: "Alcampo", precio: 0.95 },
+    { nombre: "Lidel", precio: 0.92 },
+    { nombre: "DIA", precio: 0.94 }
+  ]},
+  { nombre: "Huevos 12u", imagen: "https://images.unsplash.com/photo-1505253210343-6f9a9b7e9e8b?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 2.60 },
+    { nombre: "Carrefour", precio: 2.55 },
+    { nombre: "Alcampo", precio: 2.50 },
+    { nombre: "Lidel", precio: 2.45 },
+    { nombre: "DIA", precio: 2.48 }
+  ]},
+  { nombre: "Arroz Largo 1kg", imagen: "https://images.unsplash.com/photo-1585238342020-d85ad8f1d7ac?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Alcampo", precio: 1.19 },
+    { nombre: "Carrefour", precio: 1.32 },
+    { nombre: "Mercadona", precio: 1.35 },
+    { nombre: "Lidel", precio: 1.20 },
+    { nombre: "DIA", precio: 1.25 }
+  ]},
+  { nombre: "Aceite Girasol 1L", imagen: "https://images.unsplash.com/photo-1585325701789-8d33c051fa92?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.95 },
+    { nombre: "Carrefour", precio: 2.00 },
+    { nombre: "Alcampo", precio: 1.85 },
+    { nombre: "Lidel", precio: 1.80 },
+    { nombre: "DIA", precio: 1.88 }
+  ]},
+  { nombre: "Tomate Frito 400g", imagen: "https://images.unsplash.com/photo-1576186724105-6ab01361ab9d?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 0.75 },
+    { nombre: "Carrefour", precio: 0.80 },
+    { nombre: "Alcampo", precio: 0.78 },
+    { nombre: "Lidel", precio: 0.73 },
+    { nombre: "DIA", precio: 0.76 }
+  ]},
+  { nombre: "Lechuga Iceberg", imagen: "https://images.unsplash.com/photo-1556910103-1a241f4aa4c4?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.00 },
+    { nombre: "Carrefour", precio: 1.10 },
+    { nombre: "Alcampo", precio: 1.05 },
+    { nombre: "Lidel", precio: 0.98 },
+    { nombre: "DIA", precio: 1.00 }
+  ]},
+  { nombre: "Zumo Naranja 1L", imagen: "https://images.unsplash.com/photo-1572441710551-978fe993d83b?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.40 },
+    { nombre: "Carrefour", precio: 1.35 },
+    { nombre: "Alcampo", precio: 1.30 },
+    { nombre: "Lidel", precio: 1.32 },
+    { nombre: "DIA", precio: 1.29 }
+  ]},
+  { nombre: "Manzanas Golden 1kg", imagen: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.90 },
+    { nombre: "Carrefour", precio: 2.00 },
+    { nombre: "Alcampo", precio: 1.85 },
+    { nombre: "Lidel", precio: 1.88 },
+    { nombre: "DIA", precio: 1.89 }
+  ]},
+  { nombre: "Plátanos 1kg", imagen: "https://images.unsplash.com/photo-1574226516831-e1dff420e8f8?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.80 },
+    { nombre: "Carrefour", precio: 1.75 },
+    { nombre: "Alcampo", precio: 1.85 },
+    { nombre: "Lidel", precio: 1.70 },
+    { nombre: "DIA", precio: 1.72 }
+  ]},
+  { nombre: "Yogur natural pack 4", imagen: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.10 },
+    { nombre: "Carrefour", precio: 1.05 },
+    { nombre: "Alcampo", precio: 1.08 },
+    { nombre: "Lidel", precio: 1.12 },
+    { nombre: "DIA", precio: 1.07 }
+  ]},
+  { nombre: "Café molido 250g", imagen: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 2.20 },
+    { nombre: "Carrefour", precio: 2.10 },
+    { nombre: "Alcampo", precio: 2.15 },
+    { nombre: "Lidel", precio: 2.18 },
+    { nombre: "DIA", precio: 2.12 }
+  ]},
+  { nombre: "Galletas María 800g", imagen: "https://images.unsplash.com/photo-1561214119-e85b89f9377b?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.25 },
+    { nombre: "Carrefour", precio: 1.30 },
+    { nombre: "Alcampo", precio: 1.28 },
+    { nombre: "Lidel", precio: 1.22 },
+    { nombre: "DIA", precio: 1.27 }
+  ]},
+  { nombre: "Pollo entero (kg)", imagen: "https://images.unsplash.com/photo-1604908177522-bd48d3a0d119?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 3.90 },
+    { nombre: "Carrefour", precio: 4.00 },
+    { nombre: "Alcampo", precio: 3.95 },
+    { nombre: "Lidel", precio: 3.85 },
+    { nombre: "DIA", precio: 3.88 }
+  ]},
+  { nombre: "Pechuga pollo (kg)", imagen: "https://images.unsplash.com/photo-1590080877777-639c02c2f98a?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 6.50 },
+    { nombre: "Carrefour", precio: 6.70 },
+    { nombre: "Alcampo", precio: 6.40 },
+    { nombre: "Lidel", precio: 6.30 },
+    { nombre: "DIA", precio: 6.35 }
+  ]},
+  { nombre: "Filetes ternera (kg)", imagen: "https://images.unsplash.com/photo-1587393564653-1ff30c1ec94e?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 10.50 },
+    { nombre: "Carrefour", precio: 10.30 },
+    { nombre: "Alcampo", precio: 10.40 },
+    { nombre: "Lidel", precio: 10.20 },
+    { nombre: "DIA", precio: 10.25 }
+  ]},
+  { nombre: "Macarrones 500g", imagen: "https://images.unsplash.com/photo-1590080877831-4f315f5e5166?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 0.90 },
+    { nombre: "Carrefour", precio: 0.85 },
+    { nombre: "Alcampo", precio: 0.88 },
+    { nombre: "Lidel", precio: 0.89 },
+    { nombre: "DIA", precio: 0.87 }
+  ]},
+  { nombre: "Chocolate 100g", imagen: "https://images.unsplash.com/photo-1613145994313-207f0b8e4ac3?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 0.90 },
+    { nombre: "Carrefour", precio: 0.95 },
+    { nombre: "Alcampo", precio: 0.92 },
+    { nombre: "Lidel", precio: 0.88 },
+    { nombre: "DIA", precio: 0.89 }
+  ]},
+  { nombre: "Sal fina 1kg", imagen: "https://images.unsplash.com/photo-1576739121159-90d3e0e3c35e?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 0.40 },
+    { nombre: "Carrefour", precio: 0.38 },
+    { nombre: "Alcampo", precio: 0.39 },
+    { nombre: "Lidel", precio: 0.37 },
+    { nombre: "DIA", precio: 0.36 }
+  ]},
+  { nombre: "Azúcar blanco 1kg", imagen: "https://images.unsplash.com/photo-1590080877760-3b4aefa66e8e?auto=format&fit=crop&w=600&q=80", supermercados: [
+    { nombre: "Mercadona", precio: 1.05 },
+    { nombre: "Carrefour", precio: 1.00 },
+    { nombre: "Alcampo", precio: 1.03 },
+    { nombre: "Lidel", precio: 1.01 },
+    { nombre: "DIA", precio: 1.02 }
+  ]}
+=======
   { nombre: "Leche Entera 1L", imagen: "https://via.placeholder.com/600x400?text=Leche+Entera+1L", supermercados: [{ nombre: "Mercadona", precio: 0.97 }, { nombre: "Carrefour", precio: 0.99 }, { nombre: "Alcampo", precio: 0.98 }, { nombre: "Lidl", precio: 0.95 }, { nombre: "Dia", precio: 1.02 }] },
   { nombre: "Pan Baguette 250g", imagen: "https://via.placeholder.com/600x400?text=Pan+Baguette", supermercados: [{ nombre: "Mercadona", precio: 0.90 }, { nombre: "Carrefour", precio: 1.00 }, { nombre: "Alcampo", precio: 0.95 }, { nombre: "Lidl", precio: 0.85 }, { nombre: "Dia", precio: 0.93 }] },
   { nombre: "Huevos 12u", imagen: "https://via.placeholder.com/600x400?text=Huevos+12u", supermercados: [{ nombre: "Mercadona", precio: 2.60 }, { nombre: "Carrefour", precio: 2.55 }, { nombre: "Alcampo", precio: 2.50 }, { nombre: "Lidl", precio: 2.45 }, { nombre: "Dia", precio: 2.58 }] },
@@ -31,7 +173,9 @@ const productosMock = [
   { nombre: "Cereales 500g", imagen: "https://via.placeholder.com/600x400?text=Cereales+500g", supermercados: [{ nombre: "Mercadona", precio: 2.85 }, { nombre: "Carrefour", precio: 2.95 }, { nombre: "Alcampo", precio: 2.80 }, { nombre: "Lidl", precio: 2.40 }, { nombre: "Dia", precio: 2.70 }] },
   { nombre: "Leche Desnatada 1L", imagen: "https://via.placeholder.com/600x400?text=Leche+Desnatada", supermercados: [{ nombre: "Mercadona", precio: 0.94 }, { nombre: "Carrefour", precio: 0.96 }, { nombre: "Alcampo", precio: 0.95 }, { nombre: "Lidl", precio: 0.90 }, { nombre: "Dia", precio: 0.98 }] },
   { nombre: "Aceitunas 200g", imagen: "https://via.placeholder.com/600x400?text=Aceitunas+200g", supermercados: [{ nombre: "Mercadona", precio: 1.45 }, { nombre: "Carrefour", precio: 1.50 }, { nombre: "Alcampo", precio: 1.40 }, { nombre: "Lidl", precio: 1.35 }, { nombre: "Dia", precio: 1.48 }] }
+>>>>>>> 6069234e65214ee3fa5a9e6fde7426fc00813f59
 ];
+
 
 let listaCompra = []; // array de objetos añadidos
 
