@@ -134,13 +134,14 @@ body {
   flex-direction: column;
   align-items: center; /* Centrar contenido */
   padding: 10px;
-  height: 350px; /* Altura fija para uniformidad */
+  height: 300px; /* Altura fija para uniformidad, reducida para mejor visualización */
 }
 .card-producto img {
   width: 100%; /* Ancho completo de la tarjeta */
-  height: 150px; /* Altura fija para la imagen */
-  object-fit: cover; /* Recorta o escala para encajar */
+  height: 120px; /* Altura reducida para imágenes, evita que oculten el botón */
+  object-fit: contain; /* Mantiene la proporción sin recortar, mejor para imágenes variadas */
   border-radius: 8px;
+  margin-bottom: 10px; /* Espacio debajo de la imagen */
 }
 .info {
   padding: 10px;
@@ -150,6 +151,7 @@ body {
   color: #111827; /* Texto oscuro dentro de la tarjeta */
   text-align: center; /* Centrar texto */
   flex-grow: 1; /* Ocupa el espacio restante */
+  overflow-y: auto; /* Si el contenido es largo, permite scroll para ver el botón */
 }
 .info h4 {
   margin: 0;
@@ -176,6 +178,7 @@ body {
   border-radius: var(--radius);
   cursor: pointer;
   width: 100%; /* Botón ocupa todo el ancho */
+  visibility: visible; /* Asegura que el botón sea visible */
 }
 
 .cart-panel {
@@ -278,4 +281,4 @@ body {
 .btn-secondary {
   background: #fff;
   color: #111827;
-  }
+}
