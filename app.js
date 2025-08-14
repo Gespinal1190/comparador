@@ -34,93 +34,83 @@ const productosMock = [
 let listaCompra = []; // array de objetos añadidos
 
 /* ---------- helpers ---------- */
-const $ = (id) => document.getElementById(id);
-const updateCount = () => { const el = $('count-list'); if (el) el.textContent = listaCompra.length; }
+const $ = id => document.getElementById(id);
+const updateCount = () => { const el = $('count-list'); if(el) el.textContent = listaCompra.length; }
 
 /* ---------- render resultados ---------- */
-function renderResultados(items) {
+function renderResultados(items){
   const cont = $('listaResultados');
-  if (!cont) {
-    console.error("Elemento listaResultados no encontrado");
-    return;
-  }
+  if (!cont) return;
   cont.innerHTML = '';
-  if (!items || items.length === 0) {
-    cont.innerHTML = '<p>No se encontraron productos.</p>';
-    return;
-  }
-  items.forEach((p) => {
-    const minPriceSup = p.supermercados.reduce((min, s) => (min.precio < s.precio ? min : s), p.supermercados[0]);
+  items.forEach((p, globalIndex) => {
     const card = document.createElement('div');
     card.className = 'card-producto';
     card.innerHTML = `
-      <img loading="lazy" src="${p.imagen || 'https://via.placeholder.com/150?text=Producto'}" alt="${p.nombre}" />
+      <img loading="lazy" src="${p.imagen}" alt="${p.nombre}" />
       <div class="info">
         <h4>${p.nombre}</h4>
         <div class="price-row">
-          ${p.supermercados.map(s => `<p>${s.nombre}: $${s.precio.toFixed(2)}</p>`).join('')}
+          <small>${p.supermercados.map(s => s.nombre).join(' • ')}</small>
         </div>
-        <p class="hint">Mejor precio: <strong>$${minPriceSup.precio.toFixed(2)} (${minPriceSup.nombre})</strong></p>
-        <button data-name="${p.nombre}" onclick="agregarALista(${JSON.stringify(p)})">Añadir a lista</button>
+        <p class="hint">Precio ejemplo: <strong>${minPrice(p).toFixed(2)} €</strong></p>
+        <button data-name="${p.nombre}">Añadir a lista</button>
       </div>
     `;
+    // Botón añadir con addEventListener para evitar problemas con inline
+    card.querySelector('button').addEventListener('click', () => {
+      agregarALista(p);
+    });
     cont.appendChild(card);
   });
 }
 
 /* ---------- búsqueda y filtrado ---------- */
-function minPrice(producto) {
+function minPrice(producto){
   return Math.min(...producto.supermercados.map(s => s.precio));
 }
 
-function buscarProducto() {
+function buscarProducto(){
   const q = ($('busqueda') && $('busqueda').value.trim().toLowerCase()) || '';
   const filtro = $('filter-super') ? $('filter-super').value : 'all';
-  let resultados = productosMock; // Usar mock directamente sin API
-
-  if (q) {
-    resultados = productosMock.filter(p => p.nombre.toLowerCase().includes(q));
-    if (filtro !== 'all') {
-      resultados = resultados.filter(p => p.supermercados.some(s => s.nombre === filtro));
-    }
-  } else {
-    resultados = [];
+  let resultados = productosMock.filter(p => p.nombre.toLowerCase().includes(q));
+  if(filtro !== 'all'){
+    resultados = resultados.filter(p => p.supermercados.some(s => s.nombre === filtro));
   }
-
   renderResultados(resultados);
 }
 
 /* ---------- añadir / actualizar lista ---------- */
-function agregarALista(producto) {
-  const mejor = producto.supermercados.reduce((acc, s) => acc.precio < s.precio ? acc : s);
+function agregarALista(producto){
+  // guardamos una copia ligera con la referencia al producto original (origen)
+  const mejor = producto.supermercados.reduce((acc,s) => acc.precio < s.precio ? acc : s);
   const item = {
     nombre: producto.nombre,
     imagen: producto.imagen,
     supermercado: mejor.nombre,
     precio: mejor.precio,
-    origen: producto
+    origen: producto // referencia al objeto original para poder consultar todos los precios
   };
   listaCompra.push(item);
   actualizarLista();
 }
 
-function actualizarLista() {
+function actualizarLista(){
   const ul = $('listaProductos');
-  if (!ul) {
-    console.error("Elemento listaProductos no encontrado");
-    return;
-  }
   ul.innerHTML = '';
   listaCompra.forEach((it, idx) => {
     const li = document.createElement('li');
     li.innerHTML = `
       <div>
         <strong>${it.nombre}</strong><br>
-        <small>Elegido: ${it.supermercado} • $${it.precio.toFixed(2)}</small>
+        <small>Elegido: ${it.supermercado} • ${it.precio.toFixed(2)} €</small>
       </div>
-      <button aria-label="eliminar" data-i="${idx}">❌</button>
+      <div>
+        <button aria-label="eliminar" data-i="${idx}">❌</button>
+      </div>
     `;
-    li.querySelector('button').addEventListener('click', () => eliminarProducto(idx));
+    li.querySelector('button').addEventListener('click', () => {
+      eliminarProducto(idx);
+    });
     ul.appendChild(li);
   });
   updateCount();
@@ -128,68 +118,79 @@ function actualizarLista() {
 }
 
 /* ---------- eliminar ---------- */
-function eliminarProducto(index) {
-  listaCompra.splice(index, 1);
+function eliminarProducto(index){
+  listaCompra.splice(index,1);
   actualizarLista();
 }
 
 /* ---------- cálculo resumen ---------- */
-function calcularSuperEconomico() {
+function calcularSuperEconomico(){
+  // Queremos calcular el total POR supermercado sumando el precio que tendría cada producto
+  // en ese supermercado (usando la referencia `origen` en cada item).
   const totales = {};
   const supermercadosSet = new Set();
 
+  // Inicializar totales con todas las cadenas que aparezcan en datos
   productosMock.forEach(p => p.supermercados.forEach(s => supermercadosSet.add(s.nombre)));
   supermercadosSet.forEach(s => totales[s] = 0);
 
+  // Inicializar totales con todas las cadenas que aparezcan en datos
   listaCompra.forEach(item => {
-    item.origen.supermercados.forEach(s => {
+    const productoOriginal = item.origen;
+    productoOriginal.supermercados.forEach(s => {
+      // si no existe el supermercado en totales (por si hay nombres nuevos), lo creamos
       if (!totales[s.nombre]) totales[s.nombre] = 0;
       totales[s.nombre] += s.precio;
     });
   });
 
-  const orden = Object.entries(totales).sort((a, b) => a[1] - b[1]);
+  // Convertir a array ordenado por total ascendente
+  const orden = Object.entries(totales).sort((a,b)=> a[1]-b[1]);
+
   const out = $('resultadoEconomico');
-  if (!out) return;
-  if (listaCompra.length === 0) {
+  if(!out) return;
+  // Si la lista está vacía, mostramos mensaje y no mostramos totales con 0 acumulado
+  if(listaCompra.length === 0){
     out.innerHTML = '<p>No hay productos en la lista.</p>';
     return;
   }
 
   const [mejor, totalMejor] = orden[0];
-  const [peor, totalPeor] = orden[orden.length - 1] || [mejor, totalMejor];
+  const [peor, totalPeor] = orden[orden.length-1] || [mejor,totalMejor];
   const ahorro = (totalPeor - totalMejor);
 
+  // Detalle por producto (mostrar cada producto con precios en todos los supers)
   let detalle = '<h4>Detalle por producto</h4><ul>';
   listaCompra.forEach(it => {
     const p = it.origen;
-    detalle += `<li><strong>${p.nombre}</strong>: ${p.supermercados.map(s => `${s.nombre}: $${s.precio.toFixed(2)}`).join(' / ')}</li>`;
+    detalle += `<li><strong>${p.nombre}</strong>: ${p.supermercados.map(s => `${s.nombre}: €${s.precio.toFixed(2)}`).join(' / ')}</li>`;
   });
   detalle += '</ul>';
 
-  let listaTotalesHtml = orden.map(([k, v]) => `<li>${k}: $${v.toFixed(2)}</li>`).join('');
+  // Totales por supermercado (solo mostrar aquellos que tienen suma > 0)
+  let listaTotalesHtml = orden.map(([k,v]) => `<li>${k}: €${v.toFixed(2)}</li>`).join('');
 
   out.innerHTML = `
     <h3>Resumen de Compra</h3>
-    <p><strong>Mejor opción (total):</strong> ${mejor} — $${totalMejor.toFixed(2)}</p>
-    <p><strong>Ahorro estimado:</strong> $${ahorro.toFixed(2)} (comparado con ${peor})</p>
+    <p><strong>Mejor opción (total):</strong> ${mejor} — €${totalMejor.toFixed(2)}</p>
+    <p><strong>Ahorro estimado:</strong> €${ahorro.toFixed(2)} (comparado con ${peor})</p>
     <hr>
     <h4>Totales por supermercado</h4>
     <ul>${listaTotalesHtml}</ul>
     <hr>
     ${detalle}
-    <h4 style="color: green;">✅ Total ahorrado estimado: $${ahorro.toFixed(2)}</h4>
+    <h4 style="color: green;">✅ Total ahorrado estimado: €${ahorro.toFixed(2)}</h4>
   `;
 }
 
 /* ---------- acciones auxiliares ---------- */
-function vaciarLista() { listaCompra = []; actualizarLista(); }
-function downloadCSV() {
-  if (listaCompra.length === 0) return alert('La lista está vacía.');
-  const rows = [['Producto', 'Supermercado elegido', 'Precio elegido']];
-  listaCompra.forEach(it => rows.push([it.nombre, it.supermercado, it.precio.toFixed(2)]));
-  const csv = rows.map(r => r.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+function vaciarLista(){ listaCompra=[]; actualizarLista(); }
+function downloadCSV(){
+  if(listaCompra.length===0) return alert('La lista está vacía.');
+  const rows = [['Producto','Supermercado elegido','Precio elegido']];
+  listaCompra.forEach(it => rows.push([it.nombre,it.supermercado,it.precio.toFixed(2)]));
+  const csv = rows.map(r=> r.map(cell=> `"${String(cell).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = 'lista_compra.csv'; a.click();
@@ -198,24 +199,16 @@ function downloadCSV() {
 
 /* ---------- inicialización ---------- */
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("DOM cargado, inicializando...");
-  renderResultados(productosMock); // Carga inicial con mock
+  renderResultados(productosMock);
   const btnBuscar = $('btn-buscar');
-  if (btnBuscar) btnBuscar.addEventListener('click', buscarProducto);
+  if(btnBuscar) btnBuscar.addEventListener('click', buscarProducto);
   const btnClear = $('btn-clear');
-  if (btnClear) btnClear.addEventListener('click', () => { if (confirm('Vaciar la lista?')) vaciarLista(); });
+  if(btnClear) btnClear.addEventListener('click', ()=>{ if(confirm('Vaciar la lista?')) vaciarLista(); });
   const btnDownload = $('btn-download');
-  if (btnDownload) btnDownload.addEventListener('click', downloadCSV);
+  if(btnDownload) btnDownload.addEventListener('click', downloadCSV);
   const btnOpen = $('btn-open-list');
-  if (btnOpen) btnOpen.addEventListener('click', () => {
-    const listaCompraEl = document.querySelector('#listaCompra');
-    if (listaCompraEl) {
-      window.scrollTo({ top: listaCompraEl.offsetTop - 20, behavior: 'smooth' });
-    } else {
-      console.error("Elemento #listaCompra no encontrado");
-    }
-  });
+  if(btnOpen) btnOpen.addEventListener('click', ()=>{ window.scrollTo({top: document.querySelector('#listaCompra').offsetTop - 20, behavior:'smooth'})});
   const busquedaEl = $('busqueda');
-  if (busquedaEl) busquedaEl.addEventListener('keypress', (e) => { if (e.key === 'Enter') buscarProducto(); });
+  if(busquedaEl) busquedaEl.addEventListener('keypress', (e)=>{ if(e.key==='Enter') buscarProducto(); });
   updateCount();
 });
