@@ -31,7 +31,7 @@ const productosMock = [
   { nombre: "Aceitunas 200g", imagen: "https://via.placeholder.com/600x400?text=Aceitunas+200g", supermercados: [{ nombre: "Mercadona", precio: 1.45 }, { nombre: "Carrefour", precio: 1.50 }, { nombre: "Alcampo", precio: 1.40 }, { nombre: "Lidl", precio: 1.35 }, { nombre: "Dia", precio: 1.48 }] }
 ];
 
-let listaCompra = []; // Array de objetos añadidos
+let listaCompra = []; // array de objetos añadidos
 
 /* ---------- helpers ---------- */
 const $ = (id) => document.getElementById(id);
@@ -49,7 +49,7 @@ function renderResultados(items) {
     cont.innerHTML = '<p>No se encontraron productos.</p>';
     return;
   }
-  items.forEach((p, globalIndex) => {
+  items.forEach((p) => {
     const minPriceSup = p.supermercados.reduce((min, s) => (min.precio < s.precio ? min : s), p.supermercados[0]);
     const card = document.createElement('div');
     card.className = 'card-producto';
@@ -73,44 +73,18 @@ function minPrice(producto) {
   return Math.min(...producto.supermercados.map(s => s.precio));
 }
 
-async function buscarProducto() {
+function buscarProducto() {
   const q = ($('busqueda') && $('busqueda').value.trim().toLowerCase()) || '';
   const filtro = $('filter-super') ? $('filter-super').value : 'all';
-  let resultados = [];
+  let resultados = productosMock; // Usar mock directamente sin API
 
-  if (!q) {
-    renderResultados([]);
-    return;
-  }
-
-  try {
-    const response = await fetch(`/api/buscar?q=${encodeURIComponent(q)}`);
-    if (!response.ok) throw new Error('Error en la búsqueda: ' + response.statusText);
-    const apiResultados = await response.json();
-
-    // Normalizar resultados de la API
-    resultados = apiResultados.map(item => ({
-      nombre: item.nombre,
-      imagen: item.imagen,
-      supermercados: [
-        { nombre: "Mercadona", precio: item.supermercado === "Mercadona" ? parseFloat(item.precio.replace(/[^0-9.,]/g, "").replace(",", ".")) : 9999 },
-        { nombre: "Carrefour", precio: item.supermercado === "Carrefour" ? parseFloat(item.precio.replace(/[^0-9.,]/g, "").replace(",", ".")) : 9999 },
-        { nombre: "Alcampo", precio: 9999 },
-        { nombre: "Lidl", precio: 9999 },
-        { nombre: "Dia", precio: 9999 }
-      ]
-    }));
-
-    if (filtro !== 'all') {
-      resultados = resultados.filter(p => p.supermercados.some(s => s.nombre === filtro && s.precio < 9999));
-    }
-  } catch (error) {
-    console.error('Error al buscar con API:', error);
-    alert('No se pudieron cargar los productos desde la API. Usando datos mock.');
+  if (q) {
     resultados = productosMock.filter(p => p.nombre.toLowerCase().includes(q));
     if (filtro !== 'all') {
       resultados = resultados.filter(p => p.supermercados.some(s => s.nombre === filtro));
     }
+  } else {
+    resultados = [];
   }
 
   renderResultados(resultados);
