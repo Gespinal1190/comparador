@@ -1,7 +1,4 @@
-/* ---------- Constantes y Estado Global ---------- */
-let listaCompra = []; // Array de objetos añadidos
-
-/* ---------- Datos Mock ---------- */
+/* ======= productosMock: 30 productos (placeholders de imagen) ======= */
 const productosMock = [
   { nombre: "Leche Entera 1L", imagen: "https://static-centrallecheraasturiana.pro.centrallecheraasturiana.es/uploads/2017/02/08410297112041_C1N1-2048x2048.png", supermercados: [{ nombre: "Mercadona", precio: 0.97 }, { nombre: "Carrefour", precio: 0.99 }, { nombre: "Alcampo", precio: 0.98 }, { nombre: "Lidl", precio: 0.95 }, { nombre: "Dia", precio: 1.02 }] },
   { nombre: "Pan Baguette 250g", imagen: "https://a1.soysuper.com/1b8ba2c5ab77e8e4e19bea1653b410d4.340.340.0.min.wmark.fa28f641.jpg", supermercados: [{ nombre: "Mercadona", precio: 0.57 }, { nombre: "Carrefour", precio: 0.94 }, { nombre: "Alcampo", precio: 0.95 }, { nombre: "Lidl", precio: 0.85 }, { nombre: "Dia", precio: 0.53 }] },
@@ -13,14 +10,34 @@ const productosMock = [
   { nombre: "Zumo Naranja 1L", imagen: "https://via.placeholder.com/600x400?text=Zumo+Naranja", supermercados: [{ nombre: "Mercadona", precio: 1.40 }, { nombre: "Carrefour", precio: 1.35 }, { nombre: "Alcampo", precio: 1.30 }, { nombre: "Lidl", precio: 1.25 }, { nombre: "Dia", precio: 1.42 }] },
   { nombre: "Manzanas Golden 1kg", imagen: "https://via.placeholder.com/600x400?text=Manzanas+Golden", supermercados: [{ nombre: "Mercadona", precio: 1.90 }, { nombre: "Carrefour", precio: 2.00 }, { nombre: "Alcampo", precio: 1.85 }, { nombre: "Lidl", precio: 1.75 }, { nombre: "Dia", precio: 1.88 }] },
   { nombre: "Plátanos 1kg", imagen: "https://via.placeholder.com/600x400?text=Platanos+1kg", supermercados: [{ nombre: "Mercadona", precio: 1.80 }, { nombre: "Carrefour", precio: 1.75 }, { nombre: "Alcampo", precio: 1.85 }, { nombre: "Lidl", precio: 1.60 }, { nombre: "Dia", precio: 1.70 }] },
-  // ... (puedes agregar el resto de productos mock si los tienes)
+  { nombre: "Yogur natural pack 4", imagen: "https://via.placeholder.com/600x400?text=Yogur+4", supermercados: [{ nombre: "Mercadona", precio: 1.10 }, { nombre: "Carrefour", precio: 1.05 }, { nombre: "Alcampo", precio: 1.08 }, { nombre: "Lidl", precio: 0.99 }, { nombre: "Dia", precio: 1.12 }] },
+  { nombre: "Café molido 250g", imagen: "https://via.placeholder.com/600x400?text=Cafe+250g", supermercados: [{ nombre: "Mercadona", precio: 2.20 }, { nombre: "Carrefour", precio: 2.10 }, { nombre: "Alcampo", precio: 2.15 }, { nombre: "Lidl", precio: 1.99 }, { nombre: "Dia", precio: 2.25 }] },
+  { nombre: "Galletas María 800g", imagen: "https://via.placeholder.com/600x400?text=Galletas+Maria", supermercados: [{ nombre: "Mercadona", precio: 1.25 }, { nombre: "Carrefour", precio: 1.30 }, { nombre: "Alcampo", precio: 1.28 }, { nombre: "Lidl", precio: 1.15 }, { nombre: "Dia", precio: 1.22 }] },
+  { nombre: "Pollo entero (kg)", imagen: "https://via.placeholder.com/600x400?text=Pollo+Entero", supermercados: [{ nombre: "Mercadona", precio: 3.90 }, { nombre: "Carrefour", precio: 4.00 }, { nombre: "Alcampo", precio: 3.95 }, { nombre: "Lidl", precio: 3.70 }, { nombre: "Dia", precio: 3.85 }] },
+  { nombre: "Pechuga pollo (kg)", imagen: "https://via.placeholder.com/600x400?text=Pechuga+Pollo", supermercados: [{ nombre: "Mercadona", precio: 6.50 }, { nombre: "Carrefour", precio: 6.70 }, { nombre: "Alcampo", precio: 6.40 }, { nombre: "Lidl", precio: 6.20 }, { nombre: "Dia", precio: 6.45 }] },
+  { nombre: "Filetes ternera (kg)", imagen: "https://via.placeholder.com/600x400?text=Filetes+Ternera", supermercados: [{ nombre: "Mercadona", precio: 10.50 }, { nombre: "Carrefour", precio: 10.30 }, { nombre: "Alcampo", precio: 10.40 }, { nombre: "Lidl", precio: 9.95 }, { nombre: "Dia", precio: 10.20 }] },
+  { nombre: "Macarrones 500g", imagen: "https://via.placeholder.com/600x400?text=Macarrones+500g", supermercados: [{ nombre: "Mercadona", precio: 0.90 }, { nombre: "Carrefour", precio: 0.85 }, { nombre: "Alcampo", precio: 0.88 }, { nombre: "Lidl", precio: 0.79 }, { nombre: "Dia", precio: 0.83 }] },
+  { nombre: "Chocolate 100g", imagen: "https://via.placeholder.com/600x400?text=Chocolate+100g", supermercados: [{ nombre: "Mercadona", precio: 0.90 }, { nombre: "Carrefour", precio: 0.95 }, { nombre: "Alcampo", precio: 0.92 }, { nombre: "Lidl", precio: 0.85 }, { nombre: "Dia", precio: 0.88 }] },
+  { nombre: "Sal fina 1kg", imagen: "https://via.placeholder.com/600x400?text=Sal+1kg", supermercados: [{ nombre: "Mercadona", precio: 0.40 }, { nombre: "Carrefour", precio: 0.38 }, { nombre: "Alcampo", precio: 0.39 }, { nombre: "Lidl", precio: 0.35 }, { nombre: "Dia", precio: 0.37 }] },
+  { nombre: "Azúcar blanco 1kg", imagen: "https://via.placeholder.com/600x400?text=Azucar+1kg", supermercados: [{ nombre: "Mercadona", precio: 1.05 }, { nombre: "Carrefour", precio: 1.00 }, { nombre: "Alcampo", precio: 1.03 }, { nombre: "Lidl", precio: 0.95 }, { nombre: "Dia", precio: 0.99 }] },
+  { nombre: "Leche Semidesnatada 1L", imagen: "https://via.placeholder.com/600x400?text=Leche+Semi", supermercados: [{ nombre: "Mercadona", precio: 0.95 }, { nombre: "Carrefour", precio: 0.98 }, { nombre: "Alcampo", precio: 0.96 }, { nombre: "Lidl", precio: 0.92 }, { nombre: "Dia", precio: 0.99 }] },
+  { nombre: "Queso Gouda 250g", imagen: "https://via.placeholder.com/600x400?text=Queso+Gouda", supermercados: [{ nombre: "Mercadona", precio: 2.80 }, { nombre: "Carrefour", precio: 2.95 }, { nombre: "Alcampo", precio: 2.75 }, { nombre: "Lidl", precio: 2.50 }, { nombre: "Dia", precio: 2.85 }] },
+  { nombre: "Atún en aceite pack 3x80g", imagen: "https://via.placeholder.com/600x400?text=Atun+3x80g", supermercados: [{ nombre: "Mercadona", precio: 3.60 }, { nombre: "Carrefour", precio: 3.75 }, { nombre: "Alcampo", precio: 3.55 }, { nombre: "Lidl", precio: 3.40 }, { nombre: "Dia", precio: 3.70 }] },
+  { nombre: "Pasta Tagliatelle 500g", imagen: "https://via.placeholder.com/600x400?text=Tagliatelle+500g", supermercados: [{ nombre: "Mercadona", precio: 1.10 }, { nombre: "Carrefour", precio: 1.05 }, { nombre: "Alcampo", precio: 1.08 }, { nombre: "Lidl", precio: 0.99 }, { nombre: "Dia", precio: 1.02 }] },
+  { nombre: "Leche de Avena 1L", imagen: "https://via.placeholder.com/600x400?text=Leche+Avena", supermercados: [{ nombre: "Mercadona", precio: 1.55 }, { nombre: "Carrefour", precio: 1.60 }, { nombre: "Alcampo", precio: 1.50 }, { nombre: "Lidl", precio: 1.45 }, { nombre: "Dia", precio: 1.58 }] },
+  { nombre: "Mantequilla 250g", imagen: "https://via.placeholder.com/600x400?text=Mantequilla+250g", supermercados: [{ nombre: "Mercadona", precio: 2.10 }, { nombre: "Carrefour", precio: 2.05 }, { nombre: "Alcampo", precio: 2.00 }, { nombre: "Lidl", precio: 1.95 }, { nombre: "Dia", precio: 2.12 }] },
+  { nombre: "Cereales 500g", imagen: "https://via.placeholder.com/600x400?text=Cereales+500g", supermercados: [{ nombre: "Mercadona", precio: 2.85 }, { nombre: "Carrefour", precio: 2.95 }, { nombre: "Alcampo", precio: 2.80 }, { nombre: "Lidl", precio: 2.40 }, { nombre: "Dia", precio: 2.70 }] },
+  { nombre: "Leche Desnatada 1L", imagen: "https://via.placeholder.com/600x400?text=Leche+Desnatada", supermercados: [{ nombre: "Mercadona", precio: 0.94 }, { nombre: "Carrefour", precio: 0.96 }, { nombre: "Alcampo", precio: 0.95 }, { nombre: "Lidl", precio: 0.90 }, { nombre: "Dia", precio: 0.98 }] },
+  { nombre: "Aceitunas 200g", imagen: "https://via.placeholder.com/600x400?text=Aceitunas+200g", supermercados: [{ nombre: "Mercadona", precio: 1.45 }, { nombre: "Carrefour", precio: 1.50 }, { nombre: "Alcampo", precio: 1.40 }, { nombre: "Lidl", precio: 1.35 }, { nombre: "Dia", precio: 1.48 }] }
 ];
 
-/* ---------- Helpers ---------- */
-const $ = (id) => document.getElementById(id);
-const updateCount = () => ($('count-list')?.textContent = listaCompra.length || 0);
+let listaCompra = []; // Array de objetos añadidos
 
-/* ---------- Funciones de Renderizado ---------- */
+/* ---------- helpers ---------- */
+const $ = (id) => document.getElementById(id);
+const updateCount = () => { const el = $('count-list'); if (el) el.textContent = listaCompra.length; }
+
+/* ---------- render resultados ---------- */
 function renderResultados(items) {
   const cont = $('listaResultados');
   if (!cont) {
@@ -32,7 +49,7 @@ function renderResultados(items) {
     cont.innerHTML = '<p>No se encontraron productos.</p>';
     return;
   }
-  items.forEach((p) => {
+  items.forEach((p, globalIndex) => {
     const minPriceSup = p.supermercados.reduce((min, s) => (min.precio < s.precio ? min : s), p.supermercados[0]);
     const card = document.createElement('div');
     card.className = 'card-producto';
@@ -44,17 +61,22 @@ function renderResultados(items) {
           ${p.supermercados.map(s => `<p>${s.nombre}: $${s.precio.toFixed(2)}</p>`).join('')}
         </div>
         <p class="hint">Mejor precio: <strong>$${minPriceSup.precio.toFixed(2)} (${minPriceSup.nombre})</strong></p>
-        <button data-name="${p.nombre}" onclick="agregarALista(${JSON.stringify(p)})">Añadir</button>
+        <button data-name="${p.nombre}" onclick="agregarALista(${JSON.stringify(p)})">Añadir a lista</button>
       </div>
     `;
     cont.appendChild(card);
   });
 }
 
-/* ---------- Búsqueda y Filtrado ---------- */
+/* ---------- búsqueda y filtrado ---------- */
+function minPrice(producto) {
+  return Math.min(...producto.supermercados.map(s => s.precio));
+}
+
 async function buscarProducto() {
-  const q = $('busqueda')?.value.trim().toLowerCase() || '';
-  const filtro = $('filter-super')?.value || 'all';
+  const q = ($('busqueda') && $('busqueda').value.trim().toLowerCase()) || '';
+  const filtro = $('filter-super') ? $('filter-super').value : 'all';
+  let resultados = [];
 
   if (!q) {
     renderResultados([]);
@@ -64,10 +86,10 @@ async function buscarProducto() {
   try {
     const response = await fetch(`/api/buscar?q=${encodeURIComponent(q)}`);
     if (!response.ok) throw new Error('Error en la búsqueda: ' + response.statusText);
-    const resultados = await response.json();
+    const apiResultados = await response.json();
 
-    // Normalizar estructura para compatibilidad con mock
-    const normalizedResults = resultados.map(item => ({
+    // Normalizar resultados de la API
+    resultados = apiResultados.map(item => ({
       nombre: item.nombre,
       imagen: item.imagen,
       supermercados: [
@@ -79,27 +101,24 @@ async function buscarProducto() {
       ]
     }));
 
-    // Filtrar por supermercado si se selecciona
-    let filteredResults = normalizedResults;
     if (filtro !== 'all') {
-      filteredResults = normalizedResults.filter(p => p.supermercados.some(s => s.nombre === filtro && s.precio < 9999));
+      resultados = resultados.filter(p => p.supermercados.some(s => s.nombre === filtro && s.precio < 9999));
     }
-
-    renderResultados(filteredResults.length > 0 ? filteredResults : []);
   } catch (error) {
-    console.error('Error al buscar:', error);
+    console.error('Error al buscar con API:', error);
     alert('No se pudieron cargar los productos desde la API. Usando datos mock.');
-    const mockResults = productosMock.filter(p => p.nombre.toLowerCase().includes(q));
+    resultados = productosMock.filter(p => p.nombre.toLowerCase().includes(q));
     if (filtro !== 'all') {
-      mockResults = mockResults.filter(p => p.supermercados.some(s => s.nombre === filtro));
+      resultados = resultados.filter(p => p.supermercados.some(s => s.nombre === filtro));
     }
-    renderResultados(mockResults);
   }
+
+  renderResultados(resultados);
 }
 
-/* ---------- Gestión de Lista de Compra ---------- */
+/* ---------- añadir / actualizar lista ---------- */
 function agregarALista(producto) {
-  const mejor = producto.supermercados.reduce((acc, s) => (acc.precio < s.precio ? acc : s), producto.supermercados[0]);
+  const mejor = producto.supermercados.reduce((acc, s) => acc.precio < s.precio ? acc : s);
   const item = {
     nombre: producto.nombre,
     imagen: producto.imagen,
@@ -134,12 +153,13 @@ function actualizarLista() {
   calcularSuperEconomico();
 }
 
+/* ---------- eliminar ---------- */
 function eliminarProducto(index) {
   listaCompra.splice(index, 1);
   actualizarLista();
 }
 
-/* ---------- Cálculo de Resumen ---------- */
+/* ---------- cálculo resumen ---------- */
 function calcularSuperEconomico() {
   const totales = {};
   const supermercadosSet = new Set();
@@ -156,14 +176,15 @@ function calcularSuperEconomico() {
 
   const orden = Object.entries(totales).sort((a, b) => a[1] - b[1]);
   const out = $('resultadoEconomico');
-  if (!out || listaCompra.length === 0) {
+  if (!out) return;
+  if (listaCompra.length === 0) {
     out.innerHTML = '<p>No hay productos en la lista.</p>';
     return;
   }
 
   const [mejor, totalMejor] = orden[0];
   const [peor, totalPeor] = orden[orden.length - 1] || [mejor, totalMejor];
-  const ahorro = totalPeor - totalMejor;
+  const ahorro = (totalPeor - totalMejor);
 
   let detalle = '<h4>Detalle por producto</h4><ul>';
   listaCompra.forEach(it => {
@@ -187,14 +208,8 @@ function calcularSuperEconomico() {
   `;
 }
 
-/* ---------- Acciones Auxiliares ---------- */
-function vaciarLista() {
-  if (confirm('Vaciar la lista?')) {
-    listaCompra = [];
-    actualizarLista();
-  }
-}
-
+/* ---------- acciones auxiliares ---------- */
+function vaciarLista() { listaCompra = []; actualizarLista(); }
 function downloadCSV() {
   if (listaCompra.length === 0) return alert('La lista está vacía.');
   const rows = [['Producto', 'Supermercado elegido', 'Precio elegido']];
@@ -203,27 +218,30 @@ function downloadCSV() {
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url;
-  a.download = 'lista_compra.csv';
-  a.click();
+  a.href = url; a.download = 'lista_compra.csv'; a.click();
   URL.revokeObjectURL(url);
 }
 
-/* ---------- Inicialización ---------- */
+/* ---------- inicialización ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM cargado, inicializando...");
   renderResultados(productosMock); // Carga inicial con mock
-  $('btn-buscar')?.addEventListener('click', buscarProducto);
-  $('btn-clear')?.addEventListener('click', vaciarLista);
-  $('btn-download')?.addEventListener('click', downloadCSV);
-  $('btn-open-list')?.addEventListener('click', () => {
-    const listaCompraEl = $('#listaCompra');
+  const btnBuscar = $('btn-buscar');
+  if (btnBuscar) btnBuscar.addEventListener('click', buscarProducto);
+  const btnClear = $('btn-clear');
+  if (btnClear) btnClear.addEventListener('click', () => { if (confirm('Vaciar la lista?')) vaciarLista(); });
+  const btnDownload = $('btn-download');
+  if (btnDownload) btnDownload.addEventListener('click', downloadCSV);
+  const btnOpen = $('btn-open-list');
+  if (btnOpen) btnOpen.addEventListener('click', () => {
+    const listaCompraEl = document.querySelector('#listaCompra');
     if (listaCompraEl) {
       window.scrollTo({ top: listaCompraEl.offsetTop - 20, behavior: 'smooth' });
     } else {
       console.error("Elemento #listaCompra no encontrado");
     }
   });
-  $('busqueda')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') buscarProducto(); });
+  const busquedaEl = $('busqueda');
+  if (busquedaEl) busquedaEl.addEventListener('keypress', (e) => { if (e.key === 'Enter') buscarProducto(); });
   updateCount();
 });
