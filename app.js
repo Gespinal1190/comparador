@@ -11,18 +11,18 @@ function renderResultados(items) {
   if (!cont) return;
   cont.innerHTML = '';
   items.forEach((p) => {
+    const minPriceSup = p.supermercados.reduce((min, s) => (min.precio < s.precio ? min : s), p.supermercados[0]);
     const card = document.createElement('div');
     card.className = 'card-producto';
-    const minPriceSup = p.supermercados.reduce((min, s) => (min.precio < s.precio ? min : s), p.supermercados[0]);
     card.innerHTML = `
       <img loading="lazy" src="${p.imagen || 'https://via.placeholder.com/150?text=Producto'}" alt="${p.nombre}" />
       <div class="info">
         <h4>${p.nombre}</h4>
         <div class="price-row">
-          ${p.supermercados.map(s => `<p>${s.nombre}: ${s.precio.toFixed(2)} €</p>`).join('')}
+          ${p.supermercados.map(s => `<p>${s.nombre}: $${s.precio.toFixed(2)}</p>`).join('')}
         </div>
-        <p class="hint">Mejor precio: <strong>${minPriceSup.precio.toFixed(2)} € (${minPriceSup.nombre})</strong></p>
-        <button data-name="${p.nombre}" onclick="agregarALista(${JSON.stringify(p)})">Añadir a lista</button>
+        <p class="hint">Mejor precio: <strong>$${minPriceSup.precio.toFixed(2)}</strong></p>
+        <button data-name="${p.nombre}" onclick="agregarALista(${JSON.stringify(p)})">Añadir</button>
       </div>
     `;
     cont.appendChild(card);
