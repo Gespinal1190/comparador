@@ -10,6 +10,7 @@ const productosMock = [
   { nombre: "Zumo Naranja 1L", imagen: "https://via.placeholder.com/600x400?text=Zumo+Naranja", supermercados: [{ nombre: "Mercadona", precio: 1.40 }, { nombre: "Carrefour", precio: 1.35 }, { nombre: "Alcampo", precio: 1.30 }, { nombre: "Lidl", precio: 1.25 }, { nombre: "Dia", precio: 1.42 }] },
   { nombre: "Manzanas Golden 1kg", imagen: "https://via.placeholder.com/600x400?text=Manzanas+Golden", supermercados: [{ nombre: "Mercadona", precio: 1.90 }, { nombre: "Carrefour", precio: 2.00 }, { nombre: "Alcampo", precio: 1.85 }, { nombre: "Lidl", precio: 1.75 }, { nombre: "Dia", precio: 1.88 }] },
   { nombre: "Plátanos 1kg", imagen: "https://via.placeholder.com/600x400?text=Platanos+1kg", supermercados: [{ nombre: "Mercadona", precio: 1.80 }, { nombre: "Carrefour", precio: 1.75 }, { nombre: "Alcampo", precio: 1.85 }, { nombre: "Lidl", precio: 1.60 }, { nombre: "Dia", precio: 1.70 }] },
+
   { nombre: "Yogur natural pack 4", imagen: "https://via.placeholder.com/600x400?text=Yogur+4", supermercados: [{ nombre: "Mercadona", precio: 1.10 }, { nombre: "Carrefour", precio: 1.05 }, { nombre: "Alcampo", precio: 1.08 }, { nombre: "Lidl", precio: 0.99 }, { nombre: "Dia", precio: 1.12 }] },
   { nombre: "Café molido 250g", imagen: "https://via.placeholder.com/600x400?text=Cafe+250g", supermercados: [{ nombre: "Mercadona", precio: 2.20 }, { nombre: "Carrefour", precio: 2.10 }, { nombre: "Alcampo", precio: 2.15 }, { nombre: "Lidl", precio: 1.99 }, { nombre: "Dia", precio: 2.25 }] },
   { nombre: "Galletas María 800g", imagen: "https://via.placeholder.com/600x400?text=Galletas+Maria", supermercados: [{ nombre: "Mercadona", precio: 1.25 }, { nombre: "Carrefour", precio: 1.30 }, { nombre: "Alcampo", precio: 1.28 }, { nombre: "Lidl", precio: 1.15 }, { nombre: "Dia", precio: 1.22 }] },
@@ -20,6 +21,7 @@ const productosMock = [
   { nombre: "Chocolate 100g", imagen: "https://via.placeholder.com/600x400?text=Chocolate+100g", supermercados: [{ nombre: "Mercadona", precio: 0.90 }, { nombre: "Carrefour", precio: 0.95 }, { nombre: "Alcampo", precio: 0.92 }, { nombre: "Lidl", precio: 0.85 }, { nombre: "Dia", precio: 0.88 }] },
   { nombre: "Sal fina 1kg", imagen: "https://via.placeholder.com/600x400?text=Sal+1kg", supermercados: [{ nombre: "Mercadona", precio: 0.40 }, { nombre: "Carrefour", precio: 0.38 }, { nombre: "Alcampo", precio: 0.39 }, { nombre: "Lidl", precio: 0.35 }, { nombre: "Dia", precio: 0.37 }] },
   { nombre: "Azúcar blanco 1kg", imagen: "https://via.placeholder.com/600x400?text=Azucar+1kg", supermercados: [{ nombre: "Mercadona", precio: 1.05 }, { nombre: "Carrefour", precio: 1.00 }, { nombre: "Alcampo", precio: 1.03 }, { nombre: "Lidl", precio: 0.95 }, { nombre: "Dia", precio: 0.99 }] },
+
   { nombre: "Leche Semidesnatada 1L", imagen: "https://via.placeholder.com/600x400?text=Leche+Semi", supermercados: [{ nombre: "Mercadona", precio: 0.95 }, { nombre: "Carrefour", precio: 0.98 }, { nombre: "Alcampo", precio: 0.96 }, { nombre: "Lidl", precio: 0.92 }, { nombre: "Dia", precio: 0.99 }] },
   { nombre: "Queso Gouda 250g", imagen: "https://via.placeholder.com/600x400?text=Queso+Gouda", supermercados: [{ nombre: "Mercadona", precio: 2.80 }, { nombre: "Carrefour", precio: 2.95 }, { nombre: "Alcampo", precio: 2.75 }, { nombre: "Lidl", precio: 2.50 }, { nombre: "Dia", precio: 2.85 }] },
   { nombre: "Atún en aceite pack 3x80g", imagen: "https://via.placeholder.com/600x400?text=Atun+3x80g", supermercados: [{ nombre: "Mercadona", precio: 3.60 }, { nombre: "Carrefour", precio: 3.75 }, { nombre: "Alcampo", precio: 3.55 }, { nombre: "Lidl", precio: 3.40 }, { nombre: "Dia", precio: 3.70 }] },
@@ -81,8 +83,9 @@ function buscarProducto(){
 
 /* ---------- añadir / actualizar lista ---------- */
 function agregarALista(producto){
-  // guardamos una copia ligera con la referencia al producto original (origen)
-  const mejor = producto.supermercados.reduce((acc,s) => acc.precio < s.precio ? acc : s);
+  // Asegurar que el array de supermercados tenga al menos un elemento para reduce
+  if (producto.supermercados.length === 0) return; // Evitar error si no hay supermercados
+  const mejor = producto.supermercados.reduce((acc, s) => (acc.precio < s.precio ? acc : s), producto.supermercados[0]);
   const item = {
     nombre: producto.nombre,
     imagen: producto.imagen,
@@ -96,6 +99,7 @@ function agregarALista(producto){
 
 function actualizarLista(){
   const ul = $('listaProductos');
+  if (!ul) return;
   ul.innerHTML = '';
   listaCompra.forEach((it, idx) => {
     const li = document.createElement('li');
@@ -125,31 +129,24 @@ function eliminarProducto(index){
 
 /* ---------- cálculo resumen ---------- */
 function calcularSuperEconomico(){
-  // Queremos calcular el total POR supermercado sumando el precio que tendría cada producto
-  // en ese supermercado (usando la referencia `origen` en cada item).
   const totales = {};
   const supermercadosSet = new Set();
 
-  // Inicializar totales con todas las cadenas que aparezcan en datos
   productosMock.forEach(p => p.supermercados.forEach(s => supermercadosSet.add(s.nombre)));
   supermercadosSet.forEach(s => totales[s] = 0);
 
-  // Inicializar totales con todas las cadenas que aparezcan en datos
   listaCompra.forEach(item => {
     const productoOriginal = item.origen;
     productoOriginal.supermercados.forEach(s => {
-      // si no existe el supermercado en totales (por si hay nombres nuevos), lo creamos
       if (!totales[s.nombre]) totales[s.nombre] = 0;
       totales[s.nombre] += s.precio;
     });
   });
 
-  // Convertir a array ordenado por total ascendente
   const orden = Object.entries(totales).sort((a,b)=> a[1]-b[1]);
 
   const out = $('resultadoEconomico');
   if(!out) return;
-  // Si la lista está vacía, mostramos mensaje y no mostramos totales con 0 acumulado
   if(listaCompra.length === 0){
     out.innerHTML = '<p>No hay productos en la lista.</p>';
     return;
@@ -159,7 +156,6 @@ function calcularSuperEconomico(){
   const [peor, totalPeor] = orden[orden.length-1] || [mejor,totalMejor];
   const ahorro = (totalPeor - totalMejor);
 
-  // Detalle por producto (mostrar cada producto con precios en todos los supers)
   let detalle = '<h4>Detalle por producto</h4><ul>';
   listaCompra.forEach(it => {
     const p = it.origen;
@@ -167,7 +163,6 @@ function calcularSuperEconomico(){
   });
   detalle += '</ul>';
 
-  // Totales por supermercado (solo mostrar aquellos que tienen suma > 0)
   let listaTotalesHtml = orden.map(([k,v]) => `<li>${k}: €${v.toFixed(2)}</li>`).join('');
 
   out.innerHTML = `
