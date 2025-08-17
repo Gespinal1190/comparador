@@ -1,0 +1,321 @@
+[
+  {
+    "name": "Leche Entera 1L",
+    "imagen": "https://static-centrallecheraasturiana.pro.centrallecheraasturiana.es/uploads/2017/02/08410297112041_C1N1-2048x2048.png",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.97 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.99 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.98 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.95 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.02 }
+    ]
+  },
+  {
+    "name": "Pan Baguette 250g",
+    "imagen": "https://a1.soysuper.com/1b8ba2c5ab77e8e4e19bea1653b410d4.340.340.0.min.wmark.fa28f641.jpg",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.57 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.94 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.95 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.85 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.53 }
+    ]
+  },
+  {
+    "name": "Huevos 12u",
+    "imagen": "https://prod-mercadona.imgix.net/images/caff2c1966c9890184b1a49c72679ad1.jpg?fit=crop&h=300&w=300",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 2.8 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 2.8 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 2.47 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 2.45 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 2.6 }
+    ]
+  },
+  {
+    "name": "Arroz Largo 1kg",
+    "imagen": "https://static.carrefour.es/hd_510x_/img_pim_food/197726_00_1.jpg",
+    "supermercados": [
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.19 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.35 },
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.35 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.05 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.35 }
+    ]
+  },
+  {
+    "name": "Aceite Girasol 1L",
+    "imagen": "https://via.placeholder.com/600x400?text=Aceite+Girasol",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.95 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 2.0 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.85 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.79 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.98 }
+    ]
+  },
+  {
+    "name": "Tomate Frito 400g",
+    "imagen": "https://via.placeholder.com/600x400?text=Tomate+Frito",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.75 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.8 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.78 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.72 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.79 }
+    ]
+  },
+  {
+    "name": "Lechuga Iceberg",
+    "imagen": "https://via.placeholder.com/600x400?text=Lechuga+Iceberg",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.0 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.1 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.05 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.95 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.08 }
+    ]
+  },
+  {
+    "name": "Zumo Naranja 1L",
+    "imagen": "https://via.placeholder.com/600x400?text=Zumo+Naranja",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.4 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.35 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.3 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.25 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.42 }
+    ]
+  },
+  {
+    "name": "Manzanas Golden 1kg",
+    "imagen": "https://via.placeholder.com/600x400?text=Manzanas+Golden",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.9 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 2.0 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.85 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.75 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.88 }
+    ]
+  },
+  {
+    "name": "Plátanos 1kg",
+    "imagen": "https://via.placeholder.com/600x400?text=Platanos+1kg",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.8 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.75 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.85 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.6 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.7 }
+    ]
+  },
+  {
+    "name": "Yogur natural pack 4",
+    "imagen": "https://via.placeholder.com/600x400?text=Yogur+4",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.1 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.05 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.08 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.99 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.12 }
+    ]
+  },
+  {
+    "name": "Café molido 250g",
+    "imagen": "https://via.placeholder.com/600x400?text=Cafe+250g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 2.2 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 2.1 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 2.15 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.99 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 2.25 }
+    ]
+  },
+  {
+    "name": "Galletas María 800g",
+    "imagen": "https://via.placeholder.com/600x400?text=Galletas+Maria",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.25 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.3 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.28 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.15 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.22 }
+    ]
+  },
+  {
+    "name": "Pollo entero (kg)",
+    "imagen": "https://via.placeholder.com/600x400?text=Pollo+Entero",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 3.9 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 4.0 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 3.95 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 3.7 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 3.85 }
+    ]
+  },
+  {
+    "name": "Pechuga pollo (kg)",
+    "imagen": "https://via.placeholder.com/600x400?text=Pechuga+Pollo",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 6.5 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 6.7 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 6.4 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 6.2 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 6.45 }
+    ]
+  },
+  {
+    "name": "Filetes ternera (kg)",
+    "imagen": "https://via.placeholder.com/600x400?text=Filetes+Ternera",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 10.5 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 10.3 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 10.4 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 9.95 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 10.2 }
+    ]
+  },
+  {
+    "name": "Macarrones 500g",
+    "imagen": "https://via.placeholder.com/600x400?text=Macarrones+500g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.9 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.85 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.88 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.79 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.83 }
+    ]
+  },
+  {
+    "name": "Chocolate 100g",
+    "imagen": "https://via.placeholder.com/600x400?text=Chocolate+100g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.9 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.95 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.92 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.85 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.88 }
+    ]
+  },
+  {
+    "name": "Sal fina 1kg",
+    "imagen": "https://via.placeholder.com/600x400?text=Sal+1kg",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.4 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.38 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.39 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.35 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.37 }
+    ]
+  },
+  {
+    "name": "Azúcar blanco 1kg",
+    "imagen": "https://via.placeholder.com/600x400?text=Azucar+1kg",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.05 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.0 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.03 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.95 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.99 }
+    ]
+  },
+  {
+    "name": "Leche Semidesnatada 1L",
+    "imagen": "https://via.placeholder.com/600x400?text=Leche+Semi",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.95 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.98 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.96 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.92 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.99 }
+    ]
+  },
+  {
+    "name": "Queso Gouda 250g",
+    "imagen": "https://via.placeholder.com/600x400?text=Queso+Gouda",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 2.8 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 2.95 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 2.75 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 2.5 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 2.85 }
+    ]
+  },
+  {
+    "name": "Atún en aceite pack 3x80g",
+    "imagen": "https://via.placeholder.com/600x400?text=Atun+3x80g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 3.6 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 3.75 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 3.55 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 3.4 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 3.7 }
+    ]
+  },
+  {
+    "name": "Pasta Tagliatelle 500g",
+    "imagen": "https://via.placeholder.com/600x400?text=Tagliatelle+500g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.1 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.05 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.08 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.99 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.02 }
+    ]
+  },
+  {
+    "name": "Leche de Avena 1L",
+    "imagen": "https://via.placeholder.com/600x400?text=Leche+Avena",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.55 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.6 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.5 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.45 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.58 }
+    ]
+  },
+  {
+    "name": "Mantequilla 250g",
+    "imagen": "https://via.placeholder.com/600x400?text=Mantequilla+250g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 2.1 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 2.05 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 2.0 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.95 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 2.12 }
+    ]
+  },
+  {
+    "name": "Cereales 500g",
+    "imagen": "https://via.placeholder.com/600x400?text=Cereales+500g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 2.85 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 2.95 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 2.8 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 2.4 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 2.7 }
+    ]
+  },
+  {
+    "name": "Leche Desnatada 1L",
+    "imagen": "https://via.placeholder.com/600x400?text=Leche+Desnatada",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 0.94 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 0.96 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 0.95 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 0.9 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 0.98 }
+    ]
+  },
+  {
+    "name": "Aceitunas 200g",
+    "imagen": "https://via.placeholder.com/600x400?text=Aceitunas+200g",
+    "supermercados": [
+      { "unique_market_code": "ES-Mercadona", "name": "Mercadona", "price": 1.45 },
+      { "unique_market_code": "ES-Carrefour", "name": "Carrefour", "price": 1.5 },
+      { "unique_market_code": "ES-Alcampo", "name": "Alcampo", "price": 1.4 },
+      { "unique_market_code": "ES-Lidl", "name": "Lidl", "price": 1.35 },
+      { "unique_market_code": "ES-Dia", "name": "Dia", "price": 1.48 }
+    ]
+  }
+]
